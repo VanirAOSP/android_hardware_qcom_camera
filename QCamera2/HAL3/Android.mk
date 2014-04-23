@@ -16,6 +16,9 @@ LOCAL_SRC_FILES := \
 LOCAL_CFLAGS := -Wall -Werror -Wno-error=array-bounds -Wno-error=maybe-uninitialized -Wno-error=uninitialized
 LOCAL_CFLAGS += -DHAS_MULTIMEDIA_HINTS
 
+# hypothesized fix for camcorder on HH+flo
+LOCAL_CFLAGS += -O3
+
 LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/../stack/common \
         frameworks/native/include/media/openmax \
