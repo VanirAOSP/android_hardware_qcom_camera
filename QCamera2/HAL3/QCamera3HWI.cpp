@@ -4023,9 +4023,11 @@ int QCamera3HardwareInterface::getJpegSettings
             free(mJpegSettings->gps_timestamp);
             mJpegSettings->gps_timestamp = NULL;
         }
-        for (int i = 0; i < 3; i++) {
-            free(mJpegSettings->gps_coordinates[i]);
-            mJpegSettings->gps_coordinates[i] = NULL;
+        if (mJpegSettings->gps_coordinates) {
+            for (int i = 0; i < 3; i++) {
+                free(mJpegSettings->gps_coordinates[i]);
+                mJpegSettings->gps_coordinates[i] = NULL;
+            }
         }
         free(mJpegSettings);
         mJpegSettings = NULL;
